@@ -1077,8 +1077,16 @@ progress::-moz-progress-bar {
 /* Barracas */
 .tents-grid {
   display: grid;
-  grid-template-columns: repeat(var(--grid-size), var(--cell)) minmax(2.55rem, auto);
+  grid-template-columns: repeat(var(--grid-size), minmax(0, var(--cell))) minmax(2.55rem, auto);
+  justify-content: center;
+  width: 100%;
   gap: 0.22rem;
+}
+
+.tents-grid .tents-cell {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
 }
 
 .puzzle-cell,
@@ -1635,14 +1643,13 @@ button.number-cell:hover {
 
 @media (max-width: 580px) {
   .einstein-board-wrap {
-    overflow-x: auto;
-    padding-bottom: 0.65rem;
+    overflow-x: visible;
+    padding-bottom: 0.35rem;
   }
-  .einstein-grid.houses-4 {
-    min-width: 28rem;
-  }
+  .einstein-grid.houses-3,
+  .einstein-grid.houses-4,
   .einstein-grid.houses-5 {
-    min-width: 35rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -2890,7 +2897,7 @@ button.number-cell:hover {
   .jigsaw-layout { grid-template-columns: 1fr; }
   .jigsaw-tray { order: 2; }
   .jigsaw-board-wrap { min-height: 18rem; padding-inline: 0.4rem; }
-  .jigsaw-grid { --jigsaw-cell: clamp(2.45rem, 12vw, 3.35rem); }
+  .jigsaw-grid { --jigsaw-cell: clamp(2rem, 10vw, 3.35rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3209,7 +3216,7 @@ button.number-cell:hover {
 
 @media (max-width: 430px) {
   :root {
-    --cell: clamp(2.65rem, 12.8vw, 3.25rem);
+    --cell: clamp(2.15rem, 10.8vw, 3.25rem);
   }
 
   body {
@@ -3248,16 +3255,101 @@ button.number-cell:hover {
     gap: 0.14rem;
   }
 
+  .tents-clue {
+    min-width: 1.75rem;
+    height: auto;
+  }
+
+  .tents-clue strong {
+    font-size: 1rem;
+  }
+
+  .tents-clue span {
+    font-size: 0.52rem;
+  }
+
+  .futoshiki-grid {
+    grid-template-columns: repeat(calc(var(--numeric-size) - 1), minmax(0, var(--cell)) 0.8rem) minmax(0, var(--cell));
+    justify-content: center;
+    width: 100%;
+    gap: 0.12rem;
+  }
+
+  .futoshiki-grid .number-cell {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .inequality,
+  .inequality-spacer {
+    font-size: 0.88rem;
+  }
+
+  .inequality.vertical,
+  .inequality-spacer {
+    height: 0.8rem;
+  }
+
   .word-grid {
-    grid-template-columns: repeat(var(--word-size), min(6.2vw, 1.55rem));
+    grid-template-columns: repeat(var(--word-size), min(5.6vw, 1.55rem));
     gap: 0.08rem;
   }
 
   .word-cell {
-    width: min(6.2vw, 1.55rem);
-    height: min(6.2vw, 1.55rem);
+    width: min(5.6vw, 1.55rem);
+    height: min(5.6vw, 1.55rem);
     border-radius: 0.2rem;
     font-size: clamp(0.55rem, 2.7vw, 0.7rem);
+  }
+
+  .kakuro-grid {
+    width: min(100%, 20rem);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .kakuro-grid.grid-size-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .kakuro-grid.grid-size-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+  .kakuro-grid.grid-size-5 { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
+
+  .kakuro-cell {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .kakuro-clue-down,
+  .kakuro-clue-across {
+    font-size: clamp(0.54rem, 2.4vw, 0.72rem);
+  }
+
+  .magic-square-grid {
+    width: min(100%, 20rem);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .magic-square-grid.size-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .magic-square-grid.size-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+
+  .magic-square-cell {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .pyramid-bricks-wrap,
+  .magic-square-wrap {
+    padding-inline: 0;
+  }
+
+  .pyramid-row {
+    width: 100%;
+  }
+
+  .pyramid-brick {
+    width: min(3.5rem, 19vw);
+    height: auto;
+    aspect-ratio: 8 / 7;
   }
 
   .game-actions > button {

@@ -23,11 +23,11 @@ import {
   validateBalance
 } from '../js/rules.js';
 
-test('GAME_META covers exactly 13 games with 54 total levels', () => {
+test('GAME_META covers exactly 14 games with 78 total levels', () => {
   const gameIds = Object.keys(GAME_META);
-  assert.equal(gameIds.length, 13);
+  assert.equal(gameIds.length, 14);
   const totalLevels = gameIds.reduce((sum, id) => sum + GAME_META[id].total, 0);
-  assert.equal(totalLevels, 54);
+  assert.equal(totalLevels, 78);
 });
 
 test('Every game has matching level definitions in PUZZLES', () => {

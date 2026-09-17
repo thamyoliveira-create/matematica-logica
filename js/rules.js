@@ -78,6 +78,26 @@ function seededRandom(seed) {
 export function generateWordGrid(level) {
   const directions = [[0, 1], [1, 0], [0, -1], [-1, 0], [1, 1], [1, -1], [-1, 1], [-1, -1]];
 
+  if (level.grid) {
+    const grid = level.grid.map(row => [...row]);
+    const placements = level.words.map(entry => {
+      for (let row = 0; row < grid.length; row += 1) {
+        for (let col = 0; col < grid[row].length; col += 1) {
+          for (const [rowStep, colStep] of directions) {
+            const path = Array.from({ length: entry.word.length }, (_, index) => (
+              [row + rowStep * index, col + colStep * index]
+            ));
+            if (path.every(([nextRow, nextCol], index) => (
+              grid[nextRow]?.[nextCol] === entry.word[index]
+            ))) return { ...entry, path };
+          }
+        }
+      }
+      throw new Error(`Item ${entry.word} não encontrado na grade fixa: ${level.id}`);
+    });
+    return { grid, placements };
+  }
+
   for (let retry = 0; retry < 80; retry += 1) {
     const random = seededRandom(level.seed + retry * 997);
     const grid = Array.from({ length: level.size }, () => Array(level.size).fill(''));

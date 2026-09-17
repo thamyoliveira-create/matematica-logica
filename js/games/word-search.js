@@ -156,7 +156,7 @@ function renderBoard() {
   grid.className = 'word-grid';
   grid.style.setProperty('--word-size', level.size);
   grid.setAttribute('role', 'grid');
-  grid.setAttribute('aria-label', `Caça-palavras ${level.title}, ${level.size} por ${level.size}`);
+  grid.setAttribute('aria-label', `Caça-palavras ${level.title}, ${level.size} por ${level.size}, com letras ou números`);
 
   generated.grid.forEach((row, rowIndex) => {
     row.forEach((letter, colIndex) => {

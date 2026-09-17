@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mesa de Lógica</title>
-  <meta name="description" content="Treze jogos interativos para exercitar estratégia, atenção e raciocínio lógico com a Professora Tamiris.">
+  <meta name="description" content="Quatorze jogos interativos para exercitar estratégia, atenção e raciocínio lógico com a Professora Tamiris.">
   <meta name="theme-color" content="#211720">
   <meta property="og:title" content="Mesa de Lógica">
   <meta property="og:description" content="Uma mesa de desafios rápidos de estratégia, atenção e raciocínio.">
@@ -30,8 +30,8 @@
     <div class="header-progress" aria-labelledby="progress-heading">
       <span id="progress-heading" class="micro-label">Seu percurso</span>
       <div class="progress-line">
-        <strong id="progress-value">0/54</strong>
-        <progress id="progress-bar" value="0" max="54">0 de 54</progress>
+        <strong id="progress-value">0/78</strong>
+        <progress id="progress-bar" value="0" max="78">0 de 78</progress>
       </div>
       <span id="progress-text">0% dos desafios concluídos</span>
     </div>
@@ -53,32 +53,37 @@
         <button id="tab-catalog" class="game-tab catalog-tab" type="button" role="tab" aria-controls="panel-catalog" aria-selected="true" tabindex="0" data-game="catalog">
           <span class="game-tab-icon catalog-icon" aria-hidden="true">🗂️</span>
           <span class="game-tab-copy"><strong>Catálogo</strong><small>todos os jogos</small></span>
-          <span class="game-tab-score" data-catalog-progress>0/54</span>
+          <span class="game-tab-score" data-catalog-progress>0/78</span>
         </button>
         <button id="tab-tents" class="game-tab" type="button" role="tab" aria-controls="panel-tents" aria-selected="false" tabindex="-1" data-game="tents">
           <span class="game-tab-icon tents-icon" aria-hidden="true">▲</span>
           <span class="game-tab-copy"><strong>Barracas</strong><small>dedução espacial</small></span>
-          <span class="game-tab-score" data-game-progress>0/4</span>
+          <span class="game-tab-score" data-game-progress>0/13</span>
         </button>
         <button id="tab-words" class="game-tab" type="button" role="tab" aria-controls="panel-words" aria-selected="false" tabindex="-1" data-game="words">
           <span class="game-tab-icon words-icon" aria-hidden="true">A</span>
           <span class="game-tab-copy"><strong>Caça-palavras</strong><small>atenção visual</small></span>
-          <span class="game-tab-score" data-game-progress>0/3</span>
+          <span class="game-tab-score" data-game-progress>0/5</span>
+        </button>
+        <button id="tab-acronyms" class="game-tab" type="button" role="tab" aria-controls="panel-acronyms" aria-selected="false" tabindex="-1" data-game="acronyms">
+          <span class="game-tab-icon acronyms-icon" aria-hidden="true">UF</span>
+          <span class="game-tab-copy"><strong>Jogo das Siglas</strong><small>geografia e palavras</small></span>
+          <span class="game-tab-score" data-game-progress>0/1</span>
         </button>
         <button id="tab-bridges" class="game-tab" type="button" role="tab" aria-controls="panel-bridges" aria-selected="false" tabindex="-1" data-game="bridges">
           <span class="game-tab-icon bridges-icon" aria-hidden="true">━</span>
           <span class="game-tab-copy"><strong>Ilhas</strong><small>rede e conexão</small></span>
-          <span class="game-tab-score" data-game-progress>0/3</span>
+          <span class="game-tab-score" data-game-progress>0/12</span>
         </button>
         <button id="tab-futoshiki" class="game-tab" type="button" role="tab" aria-controls="panel-futoshiki" aria-selected="false" tabindex="-1" data-game="futoshiki">
           <span class="game-tab-icon futoshiki-icon" aria-hidden="true">&lt;</span>
           <span class="game-tab-copy"><strong>Davi e Golias</strong><small>ordem e comparação</small></span>
-          <span class="game-tab-score" data-game-progress>0/3</span>
+          <span class="game-tab-score" data-game-progress>0/11</span>
         </button>
         <button id="tab-kenken" class="game-tab" type="button" role="tab" aria-controls="panel-kenken" aria-selected="false" tabindex="-1" data-game="kenken">
           <span class="game-tab-icon kenken-icon" aria-hidden="true">×</span>
           <span class="game-tab-copy"><strong>KenKen</strong><small>cálculo estratégico</small></span>
-          <span class="game-tab-score" data-game-progress>0/3</span>
+          <span class="game-tab-score" data-game-progress>0/7</span>
         </button>
         <button id="tab-river" class="game-tab" type="button" role="tab" aria-controls="panel-river" aria-selected="false" tabindex="-1" data-game="river">
           <span class="game-tab-icon river-icon" aria-hidden="true">⛵</span>
@@ -133,17 +138,17 @@
           <div>
             <p class="eyebrow">Mesa de Desafios · Escolha Livre</p>
             <h1>Catálogo de Jogos</h1>
-            <p class="lead">Escolha qualquer jogo para começar. Os 13 jogos estão liberados desde o início — avance de fase dentro de cada jogo no seu próprio ritmo!</p>
+            <p class="lead">Escolha qualquer jogo para começar. Os 14 jogos estão liberados desde o início — avance de fase dentro de cada jogo no seu próprio ritmo!</p>
           </div>
           <div class="catalog-summary-card">
             <span class="micro-label">Resumo Geral</span>
             <div class="catalog-summary-stats">
               <div class="summary-stat">
-                <strong id="catalog-games-unlocked">13/13</strong>
+                <strong id="catalog-games-unlocked">14/14</strong>
                 <span>Jogos Livres</span>
               </div>
               <div class="summary-stat">
-                <strong id="catalog-levels-completed">0/54</strong>
+                <strong id="catalog-levels-completed">0/78</strong>
                 <span>Fases Concluídas</span>
               </div>
             </div>
@@ -154,7 +159,7 @@
         <div class="catalog-filters-bar" role="toolbar" aria-label="Filtrar jogos por categoria">
           <span class="micro-label">Filtrar por tipo:</span>
           <div class="catalog-filters-list">
-            <button type="button" class="catalog-filter-btn" data-filter="all" aria-pressed="true">Todos (13)</button>
+            <button type="button" class="catalog-filter-btn" data-filter="all" aria-pressed="true">Todos (14)</button>
             <button type="button" class="catalog-filter-btn" data-filter="math" aria-pressed="false">🔢 Aritmética & Álgebra</button>
             <button type="button" class="catalog-filter-btn" data-filter="deduction" aria-pressed="false">🧠 Dedução & Lógica</button>
             <button type="button" class="catalog-filter-btn" data-filter="strategy" aria-pressed="false">♟️ Estratégia & Logística</button>
@@ -208,12 +213,12 @@
           <div>
             <p class="eyebrow">Missão 02 · Atenção visual</p>
             <h1>Caça-palavras</h1>
-            <p class="lead">Localize termos em inglês sobre negócios e gestão em todas as direções.</p>
+            <p class="lead">Localize números e termos em inglês do material SEMATED em todas as direções.</p>
           </div>
           <details class="rules-card">
             <summary>Como jogar</summary>
             <ol>
-              <li>Arraste da primeira à última letra; ou toque nas duas pontas.</li>
+              <li>Arraste do primeiro ao último caractere; ou toque nas duas pontas.</li>
               <li>Vale horizontal, vertical e diagonal — nos dois sentidos.</li>
               <li>No teclado, use as setas e Enter para marcar início e fim.</li>
             </ol>
@@ -235,6 +240,43 @@
           <div class="game-message" data-message role="status" aria-live="polite" hidden></div>
           <div class="game-actions">
             <button class="text-button" type="button" data-action="reset">Recomeçar mapa</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="panel-acronyms" class="game-panel" role="tabpanel" aria-labelledby="tab-acronyms" data-game="acronyms" hidden>
+        <div class="game-nav-bar">
+          <button type="button" class="back-to-catalog-btn" data-action="back-to-catalog">← Voltar ao Catálogo de Jogos</button>
+        </div>
+        <div class="game-intro">
+          <div>
+            <p class="eyebrow">Missão 03 · Geografia e linguagem</p>
+            <h1>Jogo das Siglas</h1>
+            <p class="lead">Complete as siglas dos 26 estados e do Distrito Federal, depois combine UFs para criar palavras.</p>
+          </div>
+          <details class="rules-card">
+            <summary>Como jogar</summary>
+            <ol>
+              <li>Digite a sigla de cada unidade federativa na região correta.</li>
+              <li>Na segunda parte, una siglas completas para formar palavras.</li>
+              <li>É permitido repetir siglas. Exemplo: PA + TO = PATO.</li>
+            </ol>
+          </details>
+        </div>
+        <div class="play-surface">
+          <div class="surface-heading">
+            <div><span class="micro-label">Mapa do Brasil</span><h2>Estados e respectivas siglas</h2></div>
+            <span class="legend">26 estados + DF</span>
+          </div>
+          <div class="board-wrap acronym-board" data-board></div>
+          <label class="acronym-words-field">
+            <span><strong>Monte palavras com as siglas</strong><small>Separe por vírgula. Forme pelo menos 3.</small></span>
+            <textarea rows="3" data-acronym-words placeholder="Ex.: PATO, MATO, PIPA"></textarea>
+          </label>
+          <div class="game-message" data-message role="status" aria-live="polite" hidden></div>
+          <div class="game-actions">
+            <button class="primary-button" type="button" data-action="check">Conferir atividade</button>
+            <button class="text-button" type="button" data-action="reset">Limpar respostas</button>
           </div>
         </div>
       </section>

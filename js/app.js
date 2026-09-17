@@ -13,6 +13,7 @@ import {
 } from './core.js';
 import { refreshTents } from './games/tents.js';
 import { refreshWordSearch } from './games/word-search.js';
+import { refreshAcronyms } from './games/acronyms.js';
 import { refreshBridges } from './games/bridges.js';
 import { refreshFutoshiki } from './games/futoshiki.js';
 import { refreshKenKen } from './games/kenken.js';
@@ -28,6 +29,7 @@ import { refreshJigsaw } from './games/jigsaw.js';
 const refreshGames = {
   tents: refreshTents,
   words: refreshWordSearch,
+  acronyms: refreshAcronyms,
   bridges: refreshBridges,
   futoshiki: refreshFutoshiki,
   kenken: refreshKenKen,

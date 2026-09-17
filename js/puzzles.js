@@ -21,13 +21,24 @@ export const GAME_META = deepFreeze({
   words: {
     label: 'Caça-palavras',
     shortLabel: 'Palavras',
-    category: 'Atenção & Inglês',
+    category: 'Atenção Visual',
     filter: 'spatial',
     icon: 'A',
     iconClass: 'words-icon',
-    desc: 'Localize termos técnicos de gestão e negócios em inglês na matriz de letras.',
+    desc: 'Localize números e termos em inglês nos diagramas de agilidade visual.',
     skill: 'Atenção Visual e Vocabulário',
-    total: 3
+    total: 5
+  },
+  acronyms: {
+    label: 'Jogo das Siglas',
+    shortLabel: 'Siglas',
+    category: 'Geografia & Linguagem',
+    filter: 'deduction',
+    icon: 'UF',
+    iconClass: 'acronyms-icon',
+    desc: 'Associe os estados brasileiros às suas siglas e combine UFs para formar palavras.',
+    skill: 'Memória, Geografia e Vocabulário',
+    total: 1
   },
   bridges: {
     label: 'Ilhas',
@@ -38,7 +49,7 @@ export const GAME_META = deepFreeze({
     iconClass: 'bridges-icon',
     desc: 'Conecte todas as ilhas com pontes retas até atingir a contagem necessária.',
     skill: 'Planejamento e Teoria dos Grafos',
-    total: 3
+    total: 12
   },
   futoshiki: {
     label: 'Davi e Golias',
@@ -49,7 +60,7 @@ export const GAME_META = deepFreeze({
     iconClass: 'futoshiki-icon',
     desc: 'Preencha a grade latina respeitando sinais de maior (>) e menor (<) entre os números.',
     skill: 'Inequações e Comparação Numérica',
-    total: 3
+    total: 11
   },
   kenken: {
     label: 'KenKen',
@@ -60,7 +71,7 @@ export const GAME_META = deepFreeze({
     iconClass: 'kenken-icon',
     desc: 'Calcule as operações matemáticas em cada bloco sem repetir números nas linhas e colunas.',
     skill: 'Cálculo Mental e Lógica Combinatória',
-    total: 3
+    total: 7
   },
   river: {
     label: 'Travessia do Rio',
@@ -287,6 +298,39 @@ export const TENTS_LEVELS = deepFreeze([
 
 export const WORD_LEVELS = deepFreeze([
   {
+    id: 'semated-numeros',
+    title: 'SEMATED: Números',
+    size: 15,
+    grid: [
+      '941558134070804', '360041280565274', '515941588603708',
+      '119436930646168', '688011682005396', '429628529406632',
+      '865972639900564', '422164281404394', '151579720415839',
+      '058001589037540', '477732256599485', '034702409487987',
+      '286170035051778', '798225842859344', '282834530486902'
+    ],
+    words: '04320 04394 09559 13769 15324 19022 19800 20968 21309 25806 28161 31859 33605 34887 35051 37540 37774 41040 41583 42688 58283 59726 60049 61539 65418 68711 70083 70240 71492 73898 75526 76049 76703 80704 82258 82834 86800 88606 90199 97196'
+      .split(' ').map(word => ({ word, label: word }))
+  },
+  {
+    id: 'semated-palavras',
+    title: 'SEMATED: Palavras',
+    size: 15,
+    grid: [
+      'BWPMARBLEWOODSR', 'RQAAPOOLGDGPTQI', 'ICZKRADEZALGNUI',
+      'CDEDRQSOCLAXRAW', 'KLEREOUKOOZDDRS', 'CRUTAYCENWEWEEE',
+      'PIVFUMEFTADWNSL', 'SATXRMICRPLRIMI', 'IOISUOICAPSPAET',
+      'MGBNUYLTSTDTTHO', 'PCTITRTOTECASBN', 'LLICNETSCHLHZOE',
+      'ELBARUDOISTRIPS', 'VLYNIVRNELEGANT', 'WBSITHGILMIXING'
+    ],
+    words: [
+      'BORDER', 'BRICK', 'CERAMIC', 'COLORFUL', 'CONTRAST', 'CORK', 'DARK', 'DECOR',
+      'DURABLE', 'ELEGANT', 'EYECATCHING', 'GLAZED', 'HARDWOOD', 'LIGHT', 'LOOP',
+      'MARBLE', 'MATCHING', 'MIXING', 'MUTED', 'PAINTED', 'PARQUET', 'PATTERNS',
+      'PLANKS', 'RUSTIC', 'SIMPLE', 'SLATE', 'SPACIOUS', 'SQUARES', 'STAINED',
+      'STENCIL', 'STRIPS', 'TILES', 'TONES', 'UNGLAZED', 'VINYL', 'WOODS'
+    ].map(word => ({ word, label: word === 'EYECATCHING' ? 'EYE-CATCHING' : word }))
+  },
+  {
     id: 'organizar',
     title: 'Organizar',
     size: 12,
@@ -333,7 +377,100 @@ export const WORD_LEVELS = deepFreeze([
   }
 ]);
 
+export const ACRONYM_LEVELS = deepFreeze([
+  {
+    id: 'brasil',
+    title: 'Estados do Brasil',
+    regions: [
+      { name: 'Sudeste', states: [['Espírito Santo', 'ES'], ['Minas Gerais', 'MG'], ['Rio de Janeiro', 'RJ'], ['São Paulo', 'SP']] },
+      { name: 'Sul', states: [['Paraná', 'PR'], ['Rio Grande do Sul', 'RS'], ['Santa Catarina', 'SC']] },
+      { name: 'Centro-Oeste', states: [['Distrito Federal', 'DF'], ['Goiás', 'GO'], ['Mato Grosso', 'MT'], ['Mato Grosso do Sul', 'MS']] },
+      { name: 'Norte', states: [['Acre', 'AC'], ['Amapá', 'AP'], ['Amazonas', 'AM'], ['Pará', 'PA'], ['Rondônia', 'RO'], ['Roraima', 'RR'], ['Tocantins', 'TO']] },
+      { name: 'Nordeste', states: [['Alagoas', 'AL'], ['Bahia', 'BA'], ['Ceará', 'CE'], ['Maranhão', 'MA'], ['Paraíba', 'PB'], ['Pernambuco', 'PE'], ['Piauí', 'PI'], ['Rio Grande do Norte', 'RN'], ['Sergipe', 'SE']] }
+    ],
+    minimumWords: 3
+  }
+]);
+
 export const BRIDGE_LEVELS = deepFreeze([
+  {
+    id: 'semated-ilhas-01', title: 'SEMATED 1', islands: [
+      { row: 0, col: 0, value: 4 }, { row: 0, col: 4, value: 4 },
+      { row: 1, col: 1, value: 4 }, { row: 1, col: 3, value: 2 },
+      { row: 3, col: 1, value: 4 }, { row: 3, col: 4, value: 4 },
+      { row: 4, col: 0, value: 2 }
+    ]
+  },
+  {
+    id: 'semated-ilhas-02', title: 'SEMATED 2', islands: [
+      { row: 0, col: 0, value: 4 }, { row: 0, col: 2, value: 4 }, { row: 0, col: 5, value: 2 },
+      { row: 1, col: 3, value: 2 }, { row: 1, col: 4, value: 2 }, { row: 2, col: 0, value: 3 },
+      { row: 3, col: 3, value: 1 }, { row: 4, col: 2, value: 3 }, { row: 4, col: 4, value: 3 },
+      { row: 5, col: 0, value: 2 }, { row: 5, col: 3, value: 3 }, { row: 5, col: 5, value: 3 }
+    ]
+  },
+  {
+    id: 'semated-ilhas-03', title: 'SEMATED 3', islands: [
+      { row: 0, col: 1, value: 2 }, { row: 0, col: 3, value: 1 },
+      { row: 1, col: 2, value: 3 }, { row: 1, col: 5, value: 4 }, { row: 2, col: 0, value: 1 },
+      { row: 3, col: 1, value: 3 }, { row: 3, col: 2, value: 3 }, { row: 3, col: 5, value: 5 },
+      { row: 4, col: 1, value: 3 }, { row: 4, col: 4, value: 2 },
+      { row: 5, col: 0, value: 2 }, { row: 5, col: 5, value: 3 }
+    ]
+  },
+  {
+    id: 'semated-ilhas-04', title: 'SEMATED 4', islands: [
+      { row: 0, col: 0, value: 3 }, { row: 0, col: 3, value: 5 }, { row: 0, col: 6, value: 3 },
+      { row: 1, col: 2, value: 2 }, { row: 2, col: 4, value: 2 }, { row: 2, col: 6, value: 3 },
+      { row: 3, col: 2, value: 3 }, { row: 3, col: 5, value: 1 }, { row: 4, col: 4, value: 1 },
+      { row: 5, col: 0, value: 3 }, { row: 5, col: 2, value: 3 },
+      { row: 6, col: 1, value: 1 }, { row: 6, col: 3, value: 5 }, { row: 6, col: 5, value: 3 }
+    ]
+  },
+  {
+    id: 'semated-ilhas-05', title: 'SEMATED 5', islands: [
+      { row: 0, col: 0, value: 4 }, { row: 0, col: 2, value: 5 }, { row: 0, col: 4, value: 1 },
+      { row: 1, col: 3, value: 3 }, { row: 1, col: 6, value: 3 },
+      { row: 3, col: 3, value: 2 }, { row: 3, col: 5, value: 1 },
+      { row: 4, col: 2, value: 6 }, { row: 4, col: 6, value: 4 }, { row: 5, col: 0, value: 2 },
+      { row: 6, col: 2, value: 2 }, { row: 6, col: 4, value: 2 }, { row: 6, col: 6, value: 3 }
+    ]
+  },
+  {
+    id: 'semated-ilhas-06', title: 'SEMATED 6', islands: [
+      { row: 0, col: 0, value: 4 }, { row: 0, col: 2, value: 3 }, { row: 0, col: 5, value: 2 },
+      { row: 2, col: 2, value: 2 }, { row: 2, col: 4, value: 1 }, { row: 2, col: 6, value: 1 },
+      { row: 3, col: 0, value: 4 }, { row: 3, col: 5, value: 4 },
+      { row: 5, col: 5, value: 1 }, { row: 6, col: 0, value: 2 }, { row: 6, col: 6, value: 2 }
+    ]
+  },
+  {
+    id: 'semated-ilhas-07', title: 'SEMATED 7', islands: [
+      { row: 0, col: 0, value: 3 }, { row: 0, col: 2, value: 4 }, { row: 0, col: 6, value: 3 },
+      { row: 1, col: 1, value: 1 }, { row: 1, col: 3, value: 2 },
+      { row: 2, col: 4, value: 3 }, { row: 2, col: 6, value: 4 },
+      { row: 3, col: 1, value: 2 }, { row: 3, col: 3, value: 2 }, { row: 4, col: 0, value: 1 },
+      { row: 5, col: 2, value: 2 }, { row: 5, col: 4, value: 4 },
+      { row: 6, col: 1, value: 2 }, { row: 6, col: 6, value: 3 }
+    ]
+  },
+  {
+    id: 'semated-ilhas-08', title: 'SEMATED 8', islands: [
+      { row: 0, col: 1, value: 3 }, { row: 0, col: 3, value: 3 }, { row: 0, col: 5, value: 3 },
+      { row: 1, col: 0, value: 2 }, { row: 2, col: 1, value: 3 }, { row: 2, col: 5, value: 4 },
+      { row: 3, col: 3, value: 2 }, { row: 3, col: 4, value: 1 }, { row: 4, col: 1, value: 1 },
+      { row: 6, col: 0, value: 3 }, { row: 6, col: 3, value: 4 }, { row: 6, col: 5, value: 3 }
+    ]
+  },
+  {
+    id: 'semated-ilhas-09', title: 'SEMATED 9', islands: [
+      { row: 0, col: 0, value: 4 }, { row: 0, col: 2, value: 4 }, { row: 0, col: 6, value: 2 },
+      { row: 1, col: 3, value: 3 }, { row: 1, col: 5, value: 2 },
+      { row: 3, col: 2, value: 2 }, { row: 3, col: 4, value: 2 }, { row: 3, col: 6, value: 3 },
+      { row: 5, col: 3, value: 2 }, { row: 5, col: 6, value: 3 },
+      { row: 6, col: 0, value: 3 }, { row: 6, col: 2, value: 3 }, { row: 6, col: 6, value: 3 }
+    ]
+  },
   {
     id: 'arquipelago',
     title: 'Arquipélago',
@@ -363,6 +500,82 @@ export const BRIDGE_LEVELS = deepFreeze([
 ]);
 
 export const FUTOSHIKI_LEVELS = deepFreeze([
+  {
+    id: 'semated-futo-01', title: 'SEMATED 1', size: 3,
+    solution: [[3, 2, 1], [2, 1, 3], [1, 3, 2]], givens: [],
+    constraints: [
+      { a: [0, 0], b: [1, 0], relation: '>' }, { a: [1, 0], b: [2, 0], relation: '>' },
+      { a: [1, 1], b: [1, 2], relation: '<' }
+    ]
+  },
+  {
+    id: 'semated-futo-02', title: 'SEMATED 2', size: 3,
+    solution: [[1, 2, 3], [3, 1, 2], [2, 3, 1]], givens: [],
+    constraints: [
+      { a: [0, 1], b: [0, 2], relation: '<' }, { a: [1, 0], b: [1, 1], relation: '>' },
+      { a: [1, 1], b: [1, 2], relation: '<' }
+    ]
+  },
+  {
+    id: 'semated-futo-03', title: 'SEMATED 3', size: 4,
+    solution: [[3, 4, 1, 2], [2, 1, 4, 3], [1, 3, 2, 4], [4, 2, 3, 1]],
+    givens: [{ row: 2, col: 2, value: 2 }],
+    constraints: [
+      { a: [0, 2], b: [0, 3], relation: '<' }, { a: [0, 3], b: [1, 3], relation: '<' },
+      { a: [1, 0], b: [2, 0], relation: '>' }, { a: [1, 3], b: [2, 3], relation: '<' }
+    ]
+  },
+  {
+    id: 'semated-futo-04', title: 'SEMATED 4', size: 4,
+    solution: [[1, 2, 3, 4], [2, 3, 4, 1], [4, 1, 2, 3], [3, 4, 1, 2]],
+    givens: [{ row: 0, col: 1, value: 2 }],
+    constraints: [
+      { a: [0, 1], b: [0, 2], relation: '<' }, { a: [0, 0], b: [1, 0], relation: '<' },
+      { a: [0, 2], b: [1, 2], relation: '<' }, { a: [1, 1], b: [2, 1], relation: '>' },
+      { a: [2, 2], b: [3, 2], relation: '>' }, { a: [3, 0], b: [3, 1], relation: '<' }
+    ]
+  },
+  {
+    id: 'semated-futo-05', title: 'SEMATED 5', size: 4,
+    solution: [[4, 1, 3, 2], [1, 3, 2, 4], [2, 4, 1, 3], [3, 2, 4, 1]],
+    givens: [{ row: 0, col: 0, value: 4 }, { row: 0, col: 3, value: 2 }],
+    constraints: [
+      { a: [1, 0], b: [2, 0], relation: '<' }, { a: [1, 1], b: [2, 1], relation: '<' },
+      { a: [1, 3], b: [2, 3], relation: '>' }, { a: [2, 3], b: [3, 3], relation: '>' }
+    ]
+  },
+  {
+    id: 'semated-futo-06', title: 'SEMATED 6', size: 4,
+    solution: [[4, 2, 1, 3], [3, 4, 2, 1], [2, 1, 3, 4], [1, 3, 4, 2]],
+    givens: [{ row: 3, col: 3, value: 2 }],
+    constraints: [
+      { a: [0, 0], b: [1, 0], relation: '>' }, { a: [1, 2], b: [1, 3], relation: '>' },
+      { a: [1, 2], b: [2, 2], relation: '<' }, { a: [2, 2], b: [3, 2], relation: '<' }
+    ]
+  },
+  {
+    id: 'semated-futo-07', title: 'SEMATED 7', size: 5,
+    solution: [[5, 1, 3, 2, 4], [4, 3, 2, 5, 1], [2, 5, 1, 4, 3], [1, 4, 5, 3, 2], [3, 2, 4, 1, 5]],
+    givens: [{ row: 1, col: 4, value: 1 }, { row: 3, col: 1, value: 4 }, { row: 4, col: 3, value: 1 }],
+    constraints: [
+      { a: [0, 0], b: [1, 0], relation: '>' }, { a: [1, 0], b: [1, 1], relation: '>' },
+      { a: [2, 0], b: [3, 0], relation: '>' }, { a: [3, 3], b: [3, 4], relation: '>' },
+      { a: [4, 0], b: [4, 1], relation: '>' }, { a: [4, 1], b: [4, 2], relation: '<' },
+      { a: [3, 2], b: [4, 2], relation: '>' }
+    ]
+  },
+  {
+    id: 'semated-futo-08', title: 'SEMATED 8', size: 5,
+    solution: [[4, 5, 3, 2, 1], [2, 1, 4, 5, 3], [3, 4, 5, 1, 2], [5, 2, 1, 3, 4], [1, 3, 2, 4, 5]], givens: [],
+    constraints: [
+      { a: [0, 0], b: [0, 1], relation: '<' }, { a: [0, 3], b: [0, 4], relation: '>' },
+      { a: [0, 0], b: [1, 0], relation: '>' }, { a: [0, 2], b: [1, 2], relation: '<' },
+      { a: [1, 0], b: [1, 1], relation: '>' }, { a: [1, 0], b: [2, 0], relation: '<' },
+      { a: [3, 3], b: [3, 4], relation: '<' }, { a: [3, 1], b: [4, 1], relation: '<' },
+      { a: [3, 2], b: [4, 2], relation: '<' }, { a: [3, 4], b: [4, 4], relation: '<' },
+      { a: [4, 2], b: [4, 3], relation: '<' }
+    ]
+  },
   {
     id: 'comparar',
     title: 'Comparar',
@@ -443,6 +656,62 @@ export const FUTOSHIKI_LEVELS = deepFreeze([
 ]);
 
 export const KENKEN_LEVELS = deepFreeze([
+  {
+    id: 'semated-kenken-01', title: 'SEMATED 1', size: 4,
+    solution: [[4, 1, 3, 2], [2, 4, 1, 3], [3, 2, 4, 1], [1, 3, 2, 4]],
+    cages: [
+      { cells: [[0, 0]], operation: null, target: 4 },
+      { cells: [[0, 1], [1, 0], [1, 1]], operation: '×', target: 8 },
+      { cells: [[0, 2], [0, 3], [1, 2]], operation: '+', target: 6 },
+      { cells: [[1, 3]], operation: null, target: 3 },
+      { cells: [[2, 0], [2, 1], [3, 0]], operation: '+', target: 6 },
+      { cells: [[2, 2], [3, 2]], operation: '÷', target: 2 },
+      { cells: [[2, 3], [3, 3]], operation: '−', target: 3 },
+      { cells: [[3, 1]], operation: null, target: 3 }
+    ]
+  },
+  {
+    id: 'semated-kenken-02', title: 'SEMATED 2', size: 4,
+    solution: [[4, 2, 3, 1], [3, 4, 1, 2], [1, 3, 2, 4], [2, 1, 4, 3]],
+    cages: [
+      { cells: [[0, 0], [0, 1]], operation: '×', target: 8 },
+      { cells: [[0, 2], [0, 3]], operation: '+', target: 4 },
+      { cells: [[1, 0], [1, 1], [2, 1]], operation: '+', target: 10 },
+      { cells: [[1, 2], [1, 3], [2, 2]], operation: '×', target: 4 },
+      { cells: [[2, 0]], operation: null, target: 1 },
+      { cells: [[2, 3], [3, 2], [3, 3]], operation: '+', target: 11 },
+      { cells: [[3, 0], [3, 1]], operation: '+', target: 3 }
+    ]
+  },
+  {
+    id: 'semated-kenken-03', title: 'SEMATED 3', size: 4,
+    solution: [[1, 4, 3, 2], [3, 2, 1, 4], [2, 3, 4, 1], [4, 1, 2, 3]],
+    cages: [
+      { cells: [[0, 0], [1, 0]], operation: '+', target: 4 },
+      { cells: [[0, 1], [0, 2]], operation: '+', target: 7 },
+      { cells: [[0, 3], [1, 3]], operation: '−', target: 2 },
+      { cells: [[1, 1], [2, 1]], operation: '×', target: 6 },
+      { cells: [[1, 2]], operation: null, target: 1 },
+      { cells: [[2, 0], [3, 0]], operation: '÷', target: 2 },
+      { cells: [[2, 2], [2, 3]], operation: '−', target: 3 },
+      { cells: [[3, 1], [3, 2]], operation: '÷', target: 2 },
+      { cells: [[3, 3]], operation: null, target: 3 }
+    ]
+  },
+  {
+    id: 'semated-kenken-04', title: 'SEMATED 4', size: 4,
+    solution: [[3, 2, 4, 1], [1, 3, 2, 4], [4, 1, 3, 2], [2, 4, 1, 3]],
+    cages: [
+      { cells: [[0, 0], [0, 1]], operation: '−', target: 1 },
+      { cells: [[0, 2], [0, 3]], operation: '−', target: 3 },
+      { cells: [[1, 0], [2, 0]], operation: '−', target: 3 },
+      { cells: [[1, 1], [1, 2]], operation: '×', target: 6 },
+      { cells: [[1, 3], [2, 3]], operation: '÷', target: 2 },
+      { cells: [[2, 1], [2, 2]], operation: '+', target: 4 },
+      { cells: [[3, 0], [3, 1]], operation: '÷', target: 2 },
+      { cells: [[3, 2], [3, 3]], operation: '+', target: 4 }
+    ]
+  },
   {
     id: 'operacoes',
     title: 'Operações',
@@ -1121,6 +1390,7 @@ export const JIGSAW_LEVELS = deepFreeze([
 export const PUZZLES = deepFreeze({
   tents: TENTS_LEVELS,
   words: WORD_LEVELS,
+  acronyms: ACRONYM_LEVELS,
   bridges: BRIDGE_LEVELS,
   futoshiki: FUTOSHIKI_LEVELS,
   kenken: KENKEN_LEVELS,

@@ -34,7 +34,33 @@ const SOLUTIONS = [
     esse: { row: 0, col: 3, rotation: 0 },
     'ele-final': { row: 1, col: 0, rotation: 0 },
     'quadrado-final': { row: 1, col: 1, rotation: 0 }
-  }
+  },
+  {
+    'faixa-1': { row: 0, col: 0, rotation: 0 },
+    'faixa-2': { row: 1, col: 0, rotation: 0 },
+    'faixa-3': { row: 2, col: 0, rotation: 0 },
+    'faixa-4': { row: 3, col: 0, rotation: 0 },
+    'faixa-5': { row: 4, col: 0, rotation: 0 }
+  },
+  {
+    'qe-1': { row: 0, col: 0, rotation: 0 },
+    'qe-2': { row: 0, col: 2, rotation: 0 },
+    'qe-3': { row: 0, col: 4, rotation: 0 },
+    'col-1': { row: 2, col: 0, rotation: 0 },
+    'col-2': { row: 2, col: 1, rotation: 0 },
+    'col-3': { row: 2, col: 2, rotation: 0 },
+    'col-4': { row: 2, col: 3, rotation: 0 },
+    'col-5': { row: 2, col: 4, rotation: 0 },
+    'col-6': { row: 2, col: 5, rotation: 0 }
+  },
+  Object.fromEntries(Array.from({ length: 9 }, (_, index) => [
+    `nq-${index + 1}`,
+    { row: Math.floor(index / 3) * 2, col: (index % 3) * 2, rotation: 0 }
+  ])),
+  Object.fromEntries(Array.from({ length: 12 }, (_, index) => [
+    `mg-${index + 1}`,
+    { row: Math.floor(index / 4) * 2, col: (index % 4) * 2, rotation: 0 }
+  ]))
 ];
 
 test('Logic Jigsaw levels use pieces that exactly cover each board', () => {

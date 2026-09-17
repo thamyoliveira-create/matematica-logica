@@ -999,6 +999,10 @@ progress::-moz-progress-bar {
   font-size: 0.88rem;
 }
 
+.acronym-row.has-long-answer {
+  grid-template-columns: minmax(7rem, 0.9fr) minmax(9rem, 1.1fr);
+}
+
 .acronym-row:last-child {
   border-bottom: 0;
 }
@@ -3251,6 +3255,10 @@ button.number-cell:hover {
     grid-template-columns: 1fr;
   }
 
+  .jigsaw-grid {
+    --jigsaw-cell: min(3.35rem, calc((100vw - 3rem) / var(--jigsaw-cols)));
+  }
+
   .word-bank {
     margin-top: 0;
   }
@@ -3426,6 +3434,7 @@ button.number-cell:hover {
   .kakuro-grid.grid-size-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
   .kakuro-grid.grid-size-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
   .kakuro-grid.grid-size-5 { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
+  .kakuro-grid.grid-size-6 { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; }
 
   .kakuro-cell {
     width: 100%;

@@ -1,23 +1,23 @@
 # Mesa de Lógica
 
-Uma coleção completa de 14 jogos de raciocínio lógico e matemático (78 desafios no total) criada para estudantes da Professora Tamiris (Ensino Fundamental, Médio e Técnico).
+Uma coleção completa de 14 jogos de raciocínio lógico e matemático (106 desafios no total) criada para estudantes da Professora Tamiris (Ensino Fundamental, Médio e Técnico).
 
 ## 🧩 Jogos Disponíveis
 
 1. **Barracas (Tents & Trees):** dedução espacial, contagem e regras de vizinhança (13 níveis).
 2. **Caça-palavras:** dois diagramas SEMATED e três desafios extras de atenção visual (5 níveis).
-3. **Jogo das Siglas:** estados, Distrito Federal, regiões e formação de palavras com UFs (1 nível).
+3. **Jogo das Siglas:** estados, capitais, regiões e formação de palavras com UFs (4 níveis).
 4. **Ilhas (Hashiwokakero / Bridges):** os nove diagramas SEMATED e três desafios extras (12 níveis).
 5. **Davi e Golias (Futoshiki):** os oito diagramas SEMATED e três desafios extras (11 níveis).
 6. **KenKen:** os quatro diagramas SEMATED e três desafios extras (7 níveis).
 7. **Travessia do Rio:** logística clássica e o teste de QI japonês da travessia com barco (3 níveis).
 8. **Enigma de Einstein (Zebra Puzzle):** dedução matricial de 3 a 5 casas com coloração automática (3 níveis).
 9. **Torre de Hanói:** recursão, transferência e planejamento com contagem de movimentos (4 níveis).
-10. **Jogo do 24:** expressões aritméticas com 4 cartas, parênteses e frações via parser seguro (4 níveis).
-11. **Kakuro:** somas cruzadas numéricas com partição de inteiros únicos de 1 a 9 (3 níveis).
-12. **Pirâmides & Quadrados Mágicos:** pirâmides aditivas/multiplicativas e matrizes mágicas de Lo Shu e Dürer (4 níveis).
-13. **Balança Lógica:** dedução algébrica de pesos relativos com balança interativa e inclinação dinâmica (4 níveis).
-14. **Logic Jigsaw:** visualização espacial, rotação e encaixe de peças (4 níveis).
+10. **Jogo do 24:** expressões aritméticas com 4 cartas, parênteses e frações via parser seguro (10 níveis).
+11. **Kakuro:** somas cruzadas numéricas com partição de inteiros únicos de 1 a 9 (8 níveis).
+12. **Pirâmides & Quadrados Mágicos:** pirâmides aditivas/multiplicativas e matrizes mágicas de Lo Shu e Dürer (9 níveis).
+13. **Balança Lógica:** dedução algébrica de pesos relativos com balança interativa e inclinação dinâmica (9 níveis).
+14. **Logic Jigsaw:** visualização espacial, rotação e encaixe de peças (8 níveis).
 
 O progresso é salvo no `localStorage` do navegador com persistência por nível e jogo. Não há cadastro, servidor ou coleta de dados.
 
@@ -47,7 +47,7 @@ index.html                Estrutura semântica dos 14 jogos e catálogo
 styles.css                Identidade visual neo-brutalista, responsividade e temas
 js/app.js                 Navegação global, abas, perfil e barra de progresso
 js/core.js                Gerenciador de estado reativo, persistência e efeitos
-js/puzzles.js             Definições imutáveis dos 78 desafios e soluções
+js/puzzles.js             Definições imutáveis dos 106 desafios e soluções
 js/rules.js               Regras puras de validação e parser de expressões
 js/games/                 Controladores dos 14 jogos
 assets/                   Marca e favicon

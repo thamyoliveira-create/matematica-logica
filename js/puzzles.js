@@ -38,7 +38,7 @@ export const GAME_META = deepFreeze({
     iconClass: 'acronyms-icon',
     desc: 'Associe os estados brasileiros às suas siglas e combine UFs para formar palavras.',
     skill: 'Memória, Geografia e Vocabulário',
-    total: 1
+    total: 4
   },
   bridges: {
     label: 'Ilhas',
@@ -115,7 +115,7 @@ export const GAME_META = deepFreeze({
     iconClass: 'twentyfour-icon',
     desc: 'Combine as 4 cartas com operações básicas e parênteses para atingir exatamente 24.',
     skill: 'Expressões Numéricas e Frações',
-    total: 4
+    total: 10
   },
   kakuro: {
     label: 'Kakuro',
@@ -126,7 +126,7 @@ export const GAME_META = deepFreeze({
     iconClass: 'kakuro-icon',
     desc: 'Preencha as palavras cruzadas numéricas decompondo os totais em dígitos únicos de 1 a 9.',
     skill: 'Partição de Inteiros e Aritmética',
-    total: 3
+    total: 8
   },
   pyramid: {
     label: 'Pirâmides & Quadrados',
@@ -137,7 +137,7 @@ export const GAME_META = deepFreeze({
     iconClass: 'pyramid-icon',
     desc: 'Resolva pirâmides aritméticas e quadrados mágicos lendários de Lo Shu e Dürer.',
     skill: 'Propriedades Aritméticas e Matrizes',
-    total: 4
+    total: 9
   },
   balance: {
     label: 'Balança Lógica',
@@ -148,7 +148,7 @@ export const GAME_META = deepFreeze({
     iconClass: 'balance-icon',
     desc: 'Descubra os pesos relativos das formas geométricas e equilibre a balança interativa.',
     skill: 'Sistemas de Equações e Equivalência',
-    total: 4
+    total: 9
   },
   jigsaw: {
     label: 'Logic Jigsaw',
@@ -159,7 +159,7 @@ export const GAME_META = deepFreeze({
     iconClass: 'jigsaw-icon',
     desc: 'Gire e encaixe peças geométricas até preencher o tabuleiro sem deixar espaços.',
     skill: 'Visualização Espacial e Decomposição',
-    total: 4
+    total: 8
   }
 });
 
@@ -389,6 +389,38 @@ export const ACRONYM_LEVELS = deepFreeze([
       { name: 'Nordeste', states: [['Alagoas', 'AL'], ['Bahia', 'BA'], ['Ceará', 'CE'], ['Maranhão', 'MA'], ['Paraíba', 'PB'], ['Pernambuco', 'PE'], ['Piauí', 'PI'], ['Rio Grande do Norte', 'RN'], ['Sergipe', 'SE']] }
     ],
     minimumWords: 3
+  },
+  {
+    id: 'capitais', title: 'Capitais Brasileiras', placeholder: 'Capital', maxLength: 24,
+    instructions: 'Digite a capital correspondente a cada estado e ao Distrito Federal.',
+    regions: [
+      { name: 'Sudeste', states: [['Espírito Santo', 'Vitória'], ['Minas Gerais', 'Belo Horizonte'], ['Rio de Janeiro', 'Rio de Janeiro'], ['São Paulo', 'São Paulo']] },
+      { name: 'Sul', states: [['Paraná', 'Curitiba'], ['Rio Grande do Sul', 'Porto Alegre'], ['Santa Catarina', 'Florianópolis']] },
+      { name: 'Centro-Oeste', states: [['Distrito Federal', 'Brasília'], ['Goiás', 'Goiânia'], ['Mato Grosso', 'Cuiabá'], ['Mato Grosso do Sul', 'Campo Grande']] },
+      { name: 'Norte', states: [['Acre', 'Rio Branco'], ['Amapá', 'Macapá'], ['Amazonas', 'Manaus'], ['Pará', 'Belém'], ['Rondônia', 'Porto Velho'], ['Roraima', 'Boa Vista'], ['Tocantins', 'Palmas']] },
+      { name: 'Nordeste', states: [['Alagoas', 'Maceió'], ['Bahia', 'Salvador'], ['Ceará', 'Fortaleza'], ['Maranhão', 'São Luís'], ['Paraíba', 'João Pessoa'], ['Pernambuco', 'Recife'], ['Piauí', 'Teresina'], ['Rio Grande do Norte', 'Natal'], ['Sergipe', 'Aracaju']] }
+    ]
+  },
+  {
+    id: 'regioes', title: 'Descubra a Região', placeholder: 'N, NE, CO, SE ou S', maxLength: 2,
+    instructions: 'Informe a região de cada unidade federativa usando N, NE, CO, SE ou S.',
+    regions: [
+      { name: 'Estados 1', states: [['Acre', 'N'], ['Alagoas', 'NE'], ['Amapá', 'N'], ['Amazonas', 'N'], ['Bahia', 'NE'], ['Ceará', 'NE'], ['Distrito Federal', 'CO']] },
+      { name: 'Estados 2', states: [['Espírito Santo', 'SE'], ['Goiás', 'CO'], ['Maranhão', 'NE'], ['Mato Grosso', 'CO'], ['Mato Grosso do Sul', 'CO'], ['Minas Gerais', 'SE'], ['Pará', 'N']] },
+      { name: 'Estados 3', states: [['Paraíba', 'NE'], ['Paraná', 'S'], ['Pernambuco', 'NE'], ['Piauí', 'NE'], ['Rio de Janeiro', 'SE'], ['Rio Grande do Norte', 'NE'], ['Rio Grande do Sul', 'S']] },
+      { name: 'Estados 4', states: [['Rondônia', 'N'], ['Roraima', 'N'], ['Santa Catarina', 'S'], ['São Paulo', 'SE'], ['Sergipe', 'NE'], ['Tocantins', 'N']] }
+    ]
+  },
+  {
+    id: 'nomes-das-ufs', title: 'Da Sigla ao Estado', placeholder: 'Nome do estado', maxLength: 24,
+    instructions: 'Agora faça o caminho inverso: escreva o nome completo indicado por cada sigla.',
+    regions: [
+      { name: 'Sudeste', states: [['ES', 'Espírito Santo'], ['MG', 'Minas Gerais'], ['RJ', 'Rio de Janeiro'], ['SP', 'São Paulo']] },
+      { name: 'Sul', states: [['PR', 'Paraná'], ['RS', 'Rio Grande do Sul'], ['SC', 'Santa Catarina']] },
+      { name: 'Centro-Oeste', states: [['DF', 'Distrito Federal'], ['GO', 'Goiás'], ['MT', 'Mato Grosso'], ['MS', 'Mato Grosso do Sul']] },
+      { name: 'Norte', states: [['AC', 'Acre'], ['AP', 'Amapá'], ['AM', 'Amazonas'], ['PA', 'Pará'], ['RO', 'Rondônia'], ['RR', 'Roraima'], ['TO', 'Tocantins']] },
+      { name: 'Nordeste', states: [['AL', 'Alagoas'], ['BA', 'Bahia'], ['CE', 'Ceará'], ['MA', 'Maranhão'], ['PB', 'Paraíba'], ['PE', 'Pernambuco'], ['PI', 'Piauí'], ['RN', 'Rio Grande do Norte'], ['SE', 'Sergipe']] }
+    ]
   }
 ]);
 
@@ -1001,8 +1033,77 @@ export const TWENTYFOUR_LEVELS = deepFreeze([
     target: 24,
     description: 'Manipulação de centenas e divisão.',
     hint: 'Dica: Pense em (10 × 10 - 4) / 4.'
+  },
+  {
+    id: 'tf-5', title: 'Nível 5 (Divisão Estratégica)', numbers: [1, 3, 4, 6], target: 24,
+    description: 'Crie uma fração no denominador para transformar o 6 em 24.',
+    hint: 'Dica: experimente dividir 6 por uma diferença formada com 1, 3 e 4.'
+  },
+  {
+    id: 'tf-6', title: 'Nível 6 (Quase Cinquenta)', numbers: [1, 2, 7, 7], target: 24,
+    description: 'Comece com um produto alto e ajuste o resultado usando os outros números.',
+    hint: 'Dica: 7 × 7 fica muito perto de um múltiplo de 24.'
+  },
+  {
+    id: 'tf-7', title: 'Nível 7 (Produto e Diferença)', numbers: [2, 3, 5, 9], target: 24,
+    description: 'Monte dois grupos e multiplique os resultados.',
+    hint: 'Dica: procure formar 6 em um grupo e 4 no outro.'
+  },
+  {
+    id: 'tf-8', title: 'Nível 8 (Dois Grupos)', numbers: [2, 4, 5, 7], target: 24,
+    description: 'Uma diferença pequena e uma soma maior fecham a conta.',
+    hint: 'Dica: tente produzir 2 e 12.'
+  },
+  {
+    id: 'tf-9', title: 'Nível 9 (Fração Oculta)', numbers: [5, 5, 7, 11], target: 24,
+    description: 'Use todos os números e aceite um resultado fracionário no meio do caminho.',
+    hint: 'Dica: forme 11 ÷ 5 antes de trabalhar com o 7.'
+  },
+  {
+    id: 'tf-10', title: 'Nível 10 (Desafio Mestre)', numbers: [1, 4, 5, 6], target: 24,
+    description: 'O caminho mais curto passa por uma fração equivalente a um quarto.',
+    hint: 'Dica: investigue a diferença entre 5 ÷ 4 e 1.'
   }
 ]);
+
+function createRectangularKakuro({ id, title, matrix, description }) {
+  const whiteRows = matrix.length;
+  const whiteCols = matrix[0].length;
+  const rowClues = matrix.map(row => row.reduce((sum, value) => sum + value, 0));
+  const colClues = Array.from({ length: whiteCols }, (_, col) => (
+    matrix.reduce((sum, row) => sum + row[col], 0)
+  ));
+  const cells = [];
+  const solution = {};
+  matrix.forEach((row, rowIndex) => row.forEach((value, colIndex) => {
+    cells.push({ row: rowIndex + 1, col: colIndex + 1 });
+    solution[`${rowIndex + 1},${colIndex + 1}`] = value;
+  }));
+  return {
+    id, title, description,
+    rows: whiteRows + 1,
+    cols: whiteCols + 1,
+    grid: [
+      [{ type: 'black' }, ...colClues.map(colClue => ({ type: 'clue', colClue }))],
+      ...matrix.map((row, rowIndex) => [
+        { type: 'clue', rowClue: rowClues[rowIndex] },
+        ...row.map((_, colIndex) => ({ type: 'white', row: rowIndex + 1, col: colIndex + 1 }))
+      ])
+    ],
+    cells,
+    runs: [
+      ...matrix.map((row, rowIndex) => ({
+        id: `r${rowIndex + 1}`, type: 'horizontal', clue: rowClues[rowIndex],
+        cells: row.map((_, colIndex) => [rowIndex + 1, colIndex + 1])
+      })),
+      ...colClues.map((clue, colIndex) => ({
+        id: `c${colIndex + 1}`, type: 'vertical', clue,
+        cells: matrix.map((_, rowIndex) => [rowIndex + 1, colIndex + 1])
+      }))
+    ],
+    solution
+  };
+}
 
 export const KAKURO_LEVELS = deepFreeze([
   {
@@ -1101,7 +1202,32 @@ export const KAKURO_LEVELS = deepFreeze([
       '3,1': 1, '3,2': 7, '3,3': 8, '3,4': 2,
       '4,1': 2, '4,2': 9, '4,3': 4
     }
-  }
+  },
+  createRectangularKakuro({
+    id: 'kakuro-extra-1', title: 'Extra 1 · Somas Crescentes',
+    description: 'Uma grade compacta para reconhecer combinações crescentes sem repetir dígitos.',
+    matrix: [[1, 2, 3], [2, 3, 4], [3, 4, 5]]
+  }),
+  createRectangularKakuro({
+    id: 'kakuro-extra-2', title: 'Extra 2 · Colunas Cruzadas',
+    description: 'As pistas variam bastante; use as interseções para eliminar possibilidades.',
+    matrix: [[2, 4, 7], [5, 8, 1], [9, 3, 6]]
+  }),
+  createRectangularKakuro({
+    id: 'kakuro-extra-3', title: 'Extra 3 · Grade 4×4',
+    description: 'Quatro dígitos por sequência tornam cada escolha mais dependente das colunas.',
+    matrix: [[1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6], [4, 5, 6, 7]]
+  }),
+  createRectangularKakuro({
+    id: 'kakuro-extra-4', title: 'Extra 4 · Soma 18',
+    description: 'Todas as pistas indicam 18, mas as posições dos dígitos mudam em cada sequência.',
+    matrix: [[1, 3, 6, 8], [6, 8, 1, 3], [3, 1, 8, 6], [8, 6, 3, 1]]
+  }),
+  createRectangularKakuro({
+    id: 'kakuro-extra-5', title: 'Extra 5 · Grade Mestra 5×5',
+    description: 'Cinco linhas e cinco colunas interligadas encerram a nova série de Kakuro.',
+    matrix: [[1, 2, 3, 4, 5], [2, 3, 4, 5, 1], [3, 4, 5, 1, 2], [4, 5, 1, 2, 3], [5, 1, 2, 3, 4]]
+  })
 ]);
 
 export const PYRAMID_LEVELS = deepFreeze([
@@ -1178,6 +1304,56 @@ export const PYRAMID_LEVELS = deepFreeze([
       [9, 6, 7, 12],
       [4, 15, 14, 1]
     ]
+  },
+  {
+    id: 'pyr-extra-1', type: 'pyramid', title: 'Extra 1 · Escada de Somas', op: '+',
+    description: 'Complete quatro camadas combinando cálculo direto e cálculo inverso.',
+    layers: [
+      [{ value: null, given: false }],
+      [{ value: 13, given: true }, { value: null, given: false }],
+      [{ value: null, given: false }, { value: 7, given: true }, { value: null, given: false }],
+      [{ value: 2, given: true }, { value: null, given: false }, { value: 3, given: true }, { value: 5, given: true }]
+    ],
+    solution: [[28], [13, 15], [6, 7, 8], [2, 4, 3, 5]],
+    hint: 'Comece pelos blocos 7 e 3 para descobrir o número imediatamente à esquerda do 3.'
+  },
+  {
+    id: 'pyr-extra-2', type: 'pyramid', title: 'Extra 2 · Pirâmide de Cinco Camadas', op: '+',
+    description: 'Uma pirâmide maior em que cada descoberta abre duas novas relações.',
+    layers: [
+      [{ value: 48, given: true }],
+      [{ value: null, given: false }, { value: 28, given: true }],
+      [{ value: 8, given: true }, { value: null, given: false }, { value: 16, given: true }],
+      [{ value: null, given: false }, { value: 5, given: true }, { value: null, given: false }, { value: 9, given: true }],
+      [{ value: 1, given: true }, { value: 2, given: true }, { value: null, given: false }, { value: 4, given: true }, { value: 5, given: true }]
+    ],
+    solution: [[48], [20, 28], [8, 12, 16], [3, 5, 7, 9], [1, 2, 3, 4, 5]],
+    hint: 'A base segue uma sequência simples; depois, some os pares vizinhos.'
+  },
+  {
+    id: 'pyr-extra-3', type: 'pyramid', title: 'Extra 3 · Pirâmide de Multiplicação', op: '×',
+    description: 'Agora o bloco superior é o produto dos dois blocos abaixo.',
+    layers: [
+      [{ value: 72, given: true }],
+      [{ value: null, given: false }, { value: 12, given: true }],
+      [{ value: 2, given: true }, { value: null, given: false }, { value: 4, given: true }]
+    ],
+    solution: [[72], [6, 12], [2, 3, 4]],
+    hint: 'Qual número multiplicado por 4 resulta em 12?'
+  },
+  {
+    id: 'magic-extra-3x3', type: 'magicsquare', title: 'Extra 4 · Lo Shu Espelhado', size: 3,
+    magicConstant: 15,
+    description: 'Uma nova orientação do quadrado mágico clássico, com menos números revelados.',
+    initialGrid: [[6, null, null], [null, 5, 3], [null, null, 4]],
+    solution: [[6, 1, 8], [7, 5, 3], [2, 9, 4]]
+  },
+  {
+    id: 'magic-extra-4x4', type: 'magicsquare', title: 'Extra 5 · Dürer Rotacionado', size: 4,
+    magicConstant: 34,
+    description: 'Reconstrua uma rotação do quadrado de Dürer usando os números de 1 a 16.',
+    initialGrid: [[4, null, 5, 16], [null, 6, null, 3], [14, null, 11, null], [1, 12, null, 13]],
+    solution: [[4, 9, 5, 16], [15, 6, 10, 3], [14, 7, 11, 2], [1, 12, 8, 13]]
   }
 ]);
 
@@ -1330,6 +1506,88 @@ export const BALANCE_LEVELS = deepFreeze([
       rightPan: ['air', 'earth']
     },
     hint: 'Substitua as variáveis sucessivamente para encontrar a combinação de equilíbrio.'
+  },
+  {
+    id: 'bal-5', title: 'Balança 5 · Feira de Frutas',
+    description: 'Converta frutas diferentes em uma única unidade de peso.',
+    shapes: [
+      { id: 'apple', name: 'Maçã', icon: '🍎', weight: 2 },
+      { id: 'banana', name: 'Banana', icon: '🍌', weight: 3 },
+      { id: 'orange', name: 'Laranja', icon: '🍊', weight: 5 }
+    ],
+    referenceScales: [
+      { id: 'ref-1', title: 'Laranja e frutas', left: ['orange'], right: ['banana', 'apple'] },
+      { id: 'ref-2', title: 'Maçãs e bananas', left: ['apple', 'apple', 'apple'], right: ['banana', 'banana'] }
+    ],
+    mysteryScale: { id: 'mystery', title: 'Use somente maçãs', left: ['orange', 'banana'], allowedShapes: ['apple'] },
+    solution: { rightPan: ['apple', 'apple', 'apple', 'apple'] },
+    hint: 'Uma laranja e uma banana pesam o mesmo que quantas maçãs?'
+  },
+  {
+    id: 'bal-6', title: 'Balança 6 · Sistema Solar',
+    description: 'Use luas para representar o peso combinado dos astros maiores.',
+    shapes: [
+      { id: 'moon2', name: 'Lua', icon: '🌙', weight: 2 },
+      { id: 'earth2', name: 'Terra', icon: '🌍', weight: 5 },
+      { id: 'sun2', name: 'Sol', icon: '☀️', weight: 7 }
+    ],
+    referenceScales: [
+      { id: 'ref-1', title: 'Sol em equilíbrio', left: ['sun2'], right: ['earth2', 'moon2'] },
+      { id: 'ref-2', title: 'Dois sóis', left: ['sun2', 'sun2'], right: ['earth2', 'earth2', 'moon2', 'moon2'] }
+    ],
+    mysteryScale: { id: 'mystery', title: 'Use somente luas', left: ['sun2', 'earth2'], allowedShapes: ['moon2'] },
+    solution: { rightPan: ['moon2', 'moon2', 'moon2', 'moon2', 'moon2', 'moon2'] },
+    hint: 'Sol + Terra totalizam 12 unidades; cada Lua vale 2.'
+  },
+  {
+    id: 'bal-7', title: 'Balança 7 · Campeonato',
+    description: 'Transforme medalhas e troféus em bolas para fechar o placar.',
+    shapes: [
+      { id: 'ball', name: 'Bola', icon: '⚽', weight: 2 },
+      { id: 'medal', name: 'Medalha', icon: '🥇', weight: 6 },
+      { id: 'trophy', name: 'Troféu', icon: '🏆', weight: 8 }
+    ],
+    referenceScales: [
+      { id: 'ref-1', title: 'Valor da medalha', left: ['medal'], right: ['ball', 'ball', 'ball'] },
+      { id: 'ref-2', title: 'Valor do troféu', left: ['trophy'], right: ['medal', 'ball'] }
+    ],
+    mysteryScale: { id: 'mystery', title: 'Use somente bolas', left: ['trophy', 'medal'], allowedShapes: ['ball'] },
+    solution: { rightPan: ['ball', 'ball', 'ball', 'ball', 'ball', 'ball', 'ball'] },
+    hint: 'Converta primeiro o troféu e depois a medalha.'
+  },
+  {
+    id: 'bal-8', title: 'Balança 8 · Pedras Preciosas',
+    description: 'Combine rubis e safiras para igualar duas joias maiores.',
+    shapes: [
+      { id: 'ruby', name: 'Rubi', icon: '♦️', weight: 3 },
+      { id: 'sapphire', name: 'Safira', icon: '🔷', weight: 4 },
+      { id: 'emerald', name: 'Esmeralda', icon: '💚', weight: 7 },
+      { id: 'diamond2', name: 'Diamante', icon: '💎', weight: 10 }
+    ],
+    referenceScales: [
+      { id: 'ref-1', title: 'Valor da esmeralda', left: ['emerald'], right: ['ruby', 'sapphire'] },
+      { id: 'ref-2', title: 'Valor do diamante', left: ['diamond2'], right: ['ruby', 'ruby', 'sapphire'] }
+    ],
+    mysteryScale: { id: 'mystery', title: 'Use rubis e safiras', left: ['diamond2', 'emerald'], allowedShapes: ['ruby', 'sapphire'] },
+    solution: { rightPan: ['ruby', 'ruby', 'ruby', 'sapphire', 'sapphire'] },
+    hint: 'O prato esquerdo pesa 17; procure uma combinação de 3 e 4.'
+  },
+  {
+    id: 'bal-9', title: 'Balança 9 · Missão Espacial',
+    description: 'A última fase exige substituir uma cadeia inteira de equivalências.',
+    shapes: [
+      { id: 'atom', name: 'Átomo', icon: '⚛️', weight: 4 },
+      { id: 'rocket', name: 'Foguete', icon: '🚀', weight: 9 },
+      { id: 'satellite', name: 'Satélite', icon: '🛰️', weight: 13 },
+      { id: 'star2', name: 'Estrela', icon: '🌟', weight: 17 }
+    ],
+    referenceScales: [
+      { id: 'ref-1', title: 'Satélite', left: ['satellite'], right: ['rocket', 'atom'] },
+      { id: 'ref-2', title: 'Estrela', left: ['star2'], right: ['satellite', 'atom'] }
+    ],
+    mysteryScale: { id: 'mystery', title: 'Encontre uma dupla equivalente', left: ['star2', 'rocket'], allowedShapes: ['atom', 'rocket', 'satellite'] },
+    solution: { rightPan: ['satellite', 'satellite'] },
+    hint: 'O peso da estrela somado ao foguete é igual ao dobro de qual peça?'
   }
 ]);
 
@@ -1384,6 +1642,46 @@ export const JIGSAW_LEVELS = deepFreeze([
       { id: 'ele-final', label: 'Peça L', color: 'plum', cells: [[0, 0], [1, 0], [2, 0], [2, 1]] },
       { id: 'quadrado-final', label: 'Quadrado', color: 'aqua', cells: [[0, 0], [0, 1], [1, 0], [1, 1]] }
     ]
+  },
+  {
+    id: 'cinco-faixas', title: 'Cinco faixas', rows: 5, cols: 5,
+    pieces: [
+      { id: 'faixa-1', label: 'Faixa rosa', color: 'pink', cells: [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4]] },
+      { id: 'faixa-2', label: 'Faixa menta', color: 'mint', cells: [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4]] },
+      { id: 'faixa-3', label: 'Faixa amarela', color: 'yellow', cells: [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4]] },
+      { id: 'faixa-4', label: 'Faixa ameixa', color: 'plum', cells: [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4]] },
+      { id: 'faixa-5', label: 'Faixa azul', color: 'aqua', cells: [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4]] }
+    ]
+  },
+  {
+    id: 'quadrados-e-colunas', title: 'Quadrados e colunas', rows: 5, cols: 6,
+    pieces: [
+      { id: 'qe-1', label: 'Quadrado 1', color: 'pink', cells: [[0, 0], [0, 1], [1, 0], [1, 1]] },
+      { id: 'qe-2', label: 'Quadrado 2', color: 'mint', cells: [[0, 0], [0, 1], [1, 0], [1, 1]] },
+      { id: 'qe-3', label: 'Quadrado 3', color: 'yellow', cells: [[0, 0], [0, 1], [1, 0], [1, 1]] },
+      { id: 'col-1', label: 'Coluna 1', color: 'plum', cells: [[0, 0], [1, 0], [2, 0]] },
+      { id: 'col-2', label: 'Coluna 2', color: 'aqua', cells: [[0, 0], [1, 0], [2, 0]] },
+      { id: 'col-3', label: 'Coluna 3', color: 'blush', cells: [[0, 0], [1, 0], [2, 0]] },
+      { id: 'col-4', label: 'Coluna 4', color: 'pink', cells: [[0, 0], [1, 0], [2, 0]] },
+      { id: 'col-5', label: 'Coluna 5', color: 'mint', cells: [[0, 0], [1, 0], [2, 0]] },
+      { id: 'col-6', label: 'Coluna 6', color: 'yellow', cells: [[0, 0], [1, 0], [2, 0]] }
+    ]
+  },
+  {
+    id: 'nove-quadrados', title: 'Nove quadrados', rows: 6, cols: 6,
+    pieces: Array.from({ length: 9 }, (_, index) => ({
+      id: `nq-${index + 1}`, label: `Quadrado ${index + 1}`,
+      color: ['pink', 'mint', 'yellow', 'plum', 'aqua', 'blush'][index % 6],
+      cells: [[0, 0], [0, 1], [1, 0], [1, 1]]
+    }))
+  },
+  {
+    id: 'mosaico-gigante', title: 'Mosaico gigante', rows: 6, cols: 8,
+    pieces: Array.from({ length: 12 }, (_, index) => ({
+      id: `mg-${index + 1}`, label: `Bloco ${index + 1}`,
+      color: ['pink', 'mint', 'yellow', 'plum', 'aqua', 'blush'][index % 6],
+      cells: [[0, 0], [0, 1], [1, 0], [1, 1]]
+    }))
   }
 ]);
 

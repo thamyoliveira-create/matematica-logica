@@ -322,6 +322,7 @@ function renderBoard(level) {
   board.replaceChildren();
   const grid = document.createElement('div');
   grid.className = 'jigsaw-grid';
+  grid.style.setProperty('--jigsaw-cols', String(level.cols));
   grid.style.gridTemplateColumns = `repeat(${level.cols}, var(--jigsaw-cell))`;
   const occupied = new Map();
 

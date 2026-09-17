@@ -250,38 +250,28 @@ test('Math Evaluator (Safe Shunting-Yard Parser) - Arithmetic and Precedence', (
 });
 
 test('Jogo do 24 - Expression & target validation for all levels', () => {
-  // Level 1: [3, 3, 8, 8] -> 8 / (3 - 8 / 3) = 24
-  const l1 = TWENTYFOUR_LEVELS[0];
-  const res1 = validateTwentyFour(l1, '8 / (3 - 8 / 3)');
-  assert.equal(res1.valid, true);
-  assert.ok(Math.abs(res1.value - 24) < 1e-5);
-
-  // Level 2: [1, 3, 4, 6] -> 6 / (1 - 3 / 4) = 24
-  const l2 = TWENTYFOUR_LEVELS[1];
-  const res2 = validateTwentyFour(l2, '6 / (1 - 3 / 4)');
-  assert.equal(res2.valid, true);
-
-  // Level 3: [5, 5, 5, 1] -> (5 - 1 / 5) * 5 = 24
-  const l3 = TWENTYFOUR_LEVELS[2];
-  const res3 = validateTwentyFour(l3, '(5 - 1 / 5) * 5');
-  assert.equal(res3.valid, true);
-
-  // Level 4: [2, 3, 4, 5] -> (5 - 3 + 4) * 4? Wait: (5 + 3 - 2) * 4 = 24
-  const l4 = TWENTYFOUR_LEVELS[3];
-  const res4 = validateTwentyFour(l4, '(5 + 3 - 2) * 4');
-  assert.equal(res4.valid, true);
+  const expressions = [
+    '(3 - 2) * (4 * 6)', '5 * (5 - 1 / 5)', '8 / (3 - 8 / 3)', '(10 * 10 - 4) / 4',
+    '6 / (1 - 3 / 4)', '(7 * 7 - 1) / 2', '(2 * 3) * (9 - 5)', '(4 - 2) * (5 + 7)',
+    '5 * (7 - 11 / 5)', '6 / (5 / 4 - 1)'
+  ];
+  TWENTYFOUR_LEVELS.forEach((level, index) => {
+    const result = validateTwentyFour(level, expressions[index]);
+    assert.equal(result.valid, true, level.id);
+    assert.ok(Math.abs(result.value - 24) < 1e-5, level.id);
+  });
 
   // Invalid: missing numbers
-  const resMissing = validateTwentyFour(l1, '8 * 3');
+  const resMissing = validateTwentyFour(TWENTYFOUR_LEVELS[0], '6 * 4');
   assert.equal(resMissing.valid, false);
   assert.match(resMissing.reason, /exatamente 4 números/);
 
   // Invalid: wrong numbers used
-  const resWrongNums = validateTwentyFour(l1, '6 * 4 + 0 * 1');
+  const resWrongNums = validateTwentyFour(TWENTYFOUR_LEVELS[0], '6 * 4 + 0 * 1');
   assert.equal(resWrongNums.valid, false);
 
   // Invalid: expression doesn't reach 24
-  const resWrongResult = validateTwentyFour(l1, '8 + 8 + 3 + 3');
+  const resWrongResult = validateTwentyFour(TWENTYFOUR_LEVELS[0], '(6 + 4) * (3 - 2)');
   assert.equal(resWrongResult.valid, false);
   assert.match(resWrongResult.reason, /alvo é 24/);
 });
@@ -307,7 +297,7 @@ test('Kakuro - Cross-sum partitions and uniqueness validation', () => {
   assert.equal(resultIncomplete.code, 'incomplete');
 
   // Wrong sum -> invalid
-  const invalidSum = { ...level0.solution, '1,1': 1, '1,2': 2 };
+  const invalidSum = { ...level0.solution, '1,1': 1, '1,2': 3 };
   const resultWrongSum = validateKakuro(level0, invalidSum);
   assert.equal(resultWrongSum.valid, false);
   assert.equal(resultWrongSum.code, 'wrong-sum');
@@ -358,9 +348,13 @@ test('Balança Lógica - Weight calculation and balance validation', () => {
   assert.equal(calculatePanWeight(['square', 'triangle'], weights), 6);
   assert.equal(calculatePanWeight(['circle', 'circle'], weights), 6);
 
-  // Level 1: bal-1 -> mystery left: ['square', 'triangle'] (weight 6), solution right: ['triangle', 'triangle', 'triangle']
+  // Every declared solution balances its mystery scale.
+  BALANCE_LEVELS.forEach(level => {
+    assert.equal(validateBalance(level, level.solution).valid, true, level.id);
+  });
+
   const bal1 = BALANCE_LEVELS[0];
-  const state1Valid = { rightPan: ['triangle', 'triangle', 'triangle'] };
+  const state1Valid = bal1.solution;
   const resBal1 = validateBalance(bal1, state1Valid);
   assert.equal(resBal1.valid, true);
 
@@ -388,4 +382,3 @@ test('Balança Lógica - Weight calculation and balance validation', () => {
   const resBal4 = validateBalance(bal4, state4Valid);
   assert.equal(resBal4.valid, true);
 });
-

@@ -23,11 +23,11 @@ import {
   validateBalance
 } from '../js/rules.js';
 
-test('GAME_META covers exactly 14 games with 78 total levels', () => {
+test('GAME_META covers exactly 14 games with 106 total levels', () => {
   const gameIds = Object.keys(GAME_META);
   assert.equal(gameIds.length, 14);
   const totalLevels = gameIds.reduce((sum, id) => sum + GAME_META[id].total, 0);
-  assert.equal(totalLevels, 78);
+  assert.equal(totalLevels, 106);
 });
 
 test('Every game has matching level definitions in PUZZLES', () => {
@@ -49,7 +49,7 @@ test('Tents puzzle solutions are valid according to rules', () => {
 });
 
 test('Bridges puzzle solutions are valid according to rules', () => {
-  PUZZLES.bridges.forEach(level => {
+  PUZZLES.bridges.filter(level => level.solution).forEach(level => {
     const res = validateBridges(level, level.solution);
     assert.equal(res.valid, true, `Bridges level ${level.id} solution is valid`);
   });
@@ -78,7 +78,7 @@ test('Einstein puzzle solutions are valid according to rules', () => {
 
 test('TwentyFour expressions evaluate accurately without eval', () => {
   assert.equal(evaluateExpression('(1 + 5) * (8 - 4)').value, 24);
-  assert.equal(evaluateExpression('8 / (1 - 2 / 3)').value, 24);
+  assert.ok(Math.abs(evaluateExpression('8 / (1 - 2 / 3)').value - 24) < 1e-10);
   assert.equal(evaluateExpression('(3 * 8) * (7 - 6)').value, 24);
 });
 

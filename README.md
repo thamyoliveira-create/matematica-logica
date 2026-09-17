@@ -1,10 +1,10 @@
 # Mesa de Lógica
 
-Uma coleção completa de 13 jogos de raciocínio lógico e matemático (45 desafios no total) criada para estudantes da Professora Tamiris (Ensino Fundamental, Médio e Técnico).
+Uma coleção completa de 13 jogos de raciocínio lógico e matemático (54 desafios no total) criada para estudantes da Professora Tamiris (Ensino Fundamental, Médio e Técnico).
 
 ## 🧩 Jogos Disponíveis
 
-1. **Barracas (Tents & Trees):** dedução espacial, contagem e regras de vizinhança (4 níveis).
+1. **Barracas (Tents & Trees):** dedução espacial, contagem e regras de vizinhança (13 níveis).
 2. **Caça-palavras:** atenção visual com vocabulário de negócios e gestão em inglês (3 níveis).
 3. **Ilhas (Hashiwokakero / Bridges):** planejamento de rede, pontes e conectividade de grafos (3 níveis).
 4. **Davi e Golias (Futoshiki):** ordenação numérica e inequações maior/menor (3 níveis).

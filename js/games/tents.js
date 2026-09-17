@@ -28,15 +28,23 @@ const resetButton = panel.querySelector('[data-action="reset"]');
 let currentLevel = getSelectedLevel(GAME_ID);
 let grid = [];
 
-function blankGrid(size) {
-  return Array.from({ length: size }, () => Array(size).fill(0));
+function levelRows(level) {
+  return level.rows ?? level.size;
+}
+
+function levelCols(level) {
+  return level.cols ?? level.size;
+}
+
+function blankGrid(level) {
+  return Array.from({ length: levelRows(level) }, () => Array(levelCols(level)).fill(0));
 }
 
 function validStoredGrid(level, value) {
   return Array.isArray(value)
-    && value.length === level.size
+    && value.length === levelRows(level)
     && value.every((row, rowIndex) => Array.isArray(row)
-      && row.length === level.size
+      && row.length === levelCols(level)
       && row.every((cell, colIndex) => (
         [0, 1, 2].includes(cell) && (!isTree(level, rowIndex, colIndex) || cell === 0)
       )));
@@ -48,7 +56,7 @@ function setLevel(index) {
   setSelectedLevel(GAME_ID, index);
   const level = TENTS_LEVELS[index];
   const stored = getBoardState(GAME_ID, index);
-  grid = validStoredGrid(level, stored?.grid) ? stored.grid : blankGrid(level.size);
+  grid = validStoredGrid(level, stored?.grid) ? stored.grid : blankGrid(level);
   clearMessage(message);
   render();
 }
@@ -82,14 +90,16 @@ function makeClue(value, actual, label) {
 
 function renderBoard() {
   const level = TENTS_LEVELS[currentLevel];
+  const rows = levelRows(level);
+  const cols = levelCols(level);
   const gameGrid = document.createElement('div');
   gameGrid.className = 'tents-grid';
-  gameGrid.style.setProperty('--grid-size', level.size);
+  gameGrid.style.setProperty('--grid-cols', cols);
   gameGrid.setAttribute('role', 'grid');
-  gameGrid.setAttribute('aria-label', `Tabuleiro Barracas, ${level.size} por ${level.size}`);
+  gameGrid.setAttribute('aria-label', `Tabuleiro Barracas, ${rows} linhas por ${cols} colunas`);
 
-  for (let row = 0; row < level.size; row += 1) {
-    for (let col = 0; col < level.size; col += 1) {
+  for (let row = 0; row < rows; row += 1) {
+    for (let col = 0; col < cols; col += 1) {
       const tree = isTree(level, row, col);
       if (tree) {
         const cell = document.createElement('div');
@@ -122,7 +132,7 @@ function renderBoard() {
     gameGrid.append(makeClue(level.rowClues[row], count, `Linha ${row + 1}`));
   }
 
-  for (let col = 0; col < level.size; col += 1) {
+  for (let col = 0; col < cols; col += 1) {
     const count = grid.reduce((total, row) => total + (row[col] === 1 ? 1 : 0), 0);
     gameGrid.append(makeClue(level.colClues[col], count, `Coluna ${col + 1}`));
   }
@@ -165,7 +175,7 @@ function check() {
 function reset() {
   cancelAdvance(GAME_ID);
   clearBoardState(GAME_ID, currentLevel);
-  grid = blankGrid(TENTS_LEVELS[currentLevel].size);
+  grid = blankGrid(TENTS_LEVELS[currentLevel]);
   clearMessage(message);
   renderBoard();
   board.querySelector('button')?.focus();

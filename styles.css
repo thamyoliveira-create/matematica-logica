@@ -1077,7 +1077,7 @@ progress::-moz-progress-bar {
 /* Barracas */
 .tents-grid {
   display: grid;
-  grid-template-columns: repeat(var(--grid-size), minmax(0, var(--cell))) minmax(2.55rem, auto);
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, var(--cell))) minmax(2.55rem, auto);
   justify-content: center;
   width: 100%;
   gap: 0.22rem;
@@ -3266,6 +3266,15 @@ button.number-cell:hover {
 
   .tents-clue span {
     font-size: 0.52rem;
+  }
+
+  .tents-cell[data-state="tent"],
+  .tents-cell[data-state="blocked"] {
+    font-size: clamp(0.72rem, 4vw, 1.35rem);
+  }
+
+  .tents-cell.is-tree {
+    font-size: clamp(0.75rem, 4.2vw, 1.45rem);
   }
 
   .futoshiki-grid {

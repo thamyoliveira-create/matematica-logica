@@ -20,18 +20,20 @@ import {
 } from '../js/rules.js';
 
 function countTentsSolutions(level, limit = 2) {
+  const rows = level.rows ?? level.size;
+  const cols = level.cols ?? level.size;
   const candidates = [];
-  for (let row = 0; row < level.size; row += 1) {
-    for (let col = 0; col < level.size; col += 1) {
+  for (let row = 0; row < rows; row += 1) {
+    for (let col = 0; col < cols; col += 1) {
       const tree = level.trees.some(([treeRow, treeCol]) => treeRow === row && treeCol === col);
       const nearTree = level.trees.some(([treeRow, treeCol]) => Math.abs(treeRow - row) + Math.abs(treeCol - col) === 1);
       if (!tree && nearTree && level.rowClues[row] > 0 && level.colClues[col] > 0) candidates.push([row, col]);
     }
   }
 
-  const grid = Array.from({ length: level.size }, () => Array(level.size).fill(0));
-  const rowCounts = Array(level.size).fill(0);
-  const colCounts = Array(level.size).fill(0);
+  const grid = Array.from({ length: rows }, () => Array(cols).fill(0));
+  const rowCounts = Array(rows).fill(0);
+  const colCounts = Array(cols).fill(0);
   let solutions = 0;
 
   function search(index) {

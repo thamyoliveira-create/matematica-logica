@@ -26,14 +26,16 @@ export function tentsHavePerfectMatching(puzzle, tents) {
 }
 
 export function validateTents(puzzle, grid) {
-  if (!Array.isArray(grid) || grid.length !== puzzle.size
-    || grid.some(row => !Array.isArray(row) || row.length !== puzzle.size)) {
+  const rows = puzzle.rows ?? puzzle.size;
+  const cols = puzzle.cols ?? puzzle.size;
+  if (!Array.isArray(grid) || grid.length !== rows
+    || grid.some(row => !Array.isArray(row) || row.length !== cols)) {
     return { valid: false, code: 'invalid-grid' };
   }
 
   const tents = [];
-  for (let row = 0; row < puzzle.size; row += 1) {
-    for (let col = 0; col < puzzle.size; col += 1) {
+  for (let row = 0; row < rows; row += 1) {
+    for (let col = 0; col < cols; col += 1) {
       if (grid[row][col] === 1) {
         if (isTree(puzzle, row, col)) return { valid: false, code: 'tree' };
         tents.push([row, col]);
@@ -41,11 +43,11 @@ export function validateTents(puzzle, grid) {
     }
   }
 
-  for (let row = 0; row < puzzle.size; row += 1) {
+  for (let row = 0; row < rows; row += 1) {
     const count = tents.filter(([tentRow]) => tentRow === row).length;
     if (count !== puzzle.rowClues[row]) return { valid: false, code: 'row', index: row, expected: puzzle.rowClues[row], actual: count };
   }
-  for (let col = 0; col < puzzle.size; col += 1) {
+  for (let col = 0; col < cols; col += 1) {
     const count = tents.filter(([, tentCol]) => tentCol === col).length;
     if (count !== puzzle.colClues[col]) return { valid: false, code: 'column', index: col, expected: puzzle.colClues[col], actual: count };
   }
@@ -943,4 +945,3 @@ export function validateJigsaw(level, placements) {
 
   return { valid: true, code: 'complete' };
 }
-

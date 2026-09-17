@@ -16,7 +16,7 @@ export const GAME_META = deepFreeze({
     iconClass: 'tents-icon',
     desc: 'Posicione barracas ao lado de árvores respeitando as contagens de linhas e colunas.',
     skill: 'Raciocínio Espacial e Contagem',
-    total: 4
+    total: 13
   },
   words: {
     label: 'Caça-palavras',
@@ -154,36 +154,134 @@ export const GAME_META = deepFreeze({
 
 export const TENTS_LEVELS = deepFreeze([
   {
-    id: 'clareira',
-    title: 'Clareira',
-    size: 5,
+    id: 'semated-01',
+    title: 'SEMATED 1',
+    rows: 4,
+    cols: 4,
+    trees: [[1, 2], [2, 1], [2, 3]],
+    rowClues: [1, 0, 1, 1],
+    colClues: [1, 0, 1, 1],
+    solution: [[0, 0, 1, 0], [0, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 1]]
+  },
+  {
+    id: 'semated-02',
+    title: 'SEMATED 2',
+    rows: 4,
+    cols: 4,
+    trees: [[1, 0], [2, 1], [3, 2]],
+    rowClues: [1, 0, 1, 1],
+    colClues: [2, 0, 0, 1],
+    solution: [[1, 0, 0, 0], [0, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 1]]
+  },
+  {
+    id: 'semated-03',
+    title: 'SEMATED 3',
+    rows: 4,
+    cols: 4,
+    trees: [[1, 1], [2, 1], [3, 2]],
+    rowClues: [1, 0, 1, 1],
+    colClues: [1, 1, 0, 1],
+    solution: [[0, 1, 0, 0], [0, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 1]]
+  },
+  {
+    id: 'semated-04',
+    title: 'SEMATED 4',
+    rows: 5,
+    cols: 5,
+    trees: [[1, 0], [1, 1], [2, 3], [3, 2], [4, 3]],
+    rowClues: [1, 0, 3, 0, 1],
+    colClues: [1, 1, 1, 0, 2],
+    solution: [[0, 1, 0, 0, 0], [0, 0, 0, 0, 0], [1, 0, 1, 0, 1], [0, 0, 0, 0, 0], [0, 0, 0, 0, 1]]
+  },
+  {
+    id: 'semated-05',
+    title: 'SEMATED 5',
+    rows: 5,
+    cols: 5,
+    trees: [[0, 3], [1, 0], [3, 0], [3, 3], [4, 2]],
+    rowClues: [1, 1, 1, 1, 1],
+    colClues: [2, 1, 0, 1, 1],
+    solution: [[1, 0, 0, 0, 0], [0, 0, 0, 1, 0], [1, 0, 0, 0, 0], [0, 0, 0, 0, 1], [0, 1, 0, 0, 0]]
+  },
+  {
+    id: 'semated-06',
+    title: 'SEMATED 6',
+    rows: 5,
+    cols: 5,
+    trees: [[0, 1], [0, 3], [2, 2], [3, 1], [3, 4]],
+    rowClues: [2, 1, 0, 1, 1],
+    colClues: [1, 1, 1, 1, 1],
+    solution: [[1, 0, 0, 0, 1], [0, 0, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 1, 0], [0, 1, 0, 0, 0]]
+  },
+  {
+    id: 'semated-07',
+    title: 'SEMATED 7',
+    rows: 5,
+    cols: 7,
+    trees: [[1, 0], [1, 3], [1, 6], [2, 4], [3, 6], [4, 1], [4, 3]],
+    rowClues: [1, 2, 0, 1, 3],
+    colClues: [2, 0, 2, 0, 1, 1, 1],
+    solution: [[1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0], [1, 0, 1, 0, 0, 0, 1]]
+  },
+  {
+    id: 'semated-08',
+    title: 'SEMATED 8',
+    rows: 5,
+    cols: 7,
+    trees: [[0, 1], [0, 2], [2, 0], [2, 5], [3, 3], [3, 5], [4, 6]],
+    rowClues: [1, 2, 0, 4, 0],
+    colClues: [1, 1, 1, 1, 1, 1, 1],
+    solution: [[0, 0, 0, 1, 0, 0, 0], [0, 1, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0], [1, 0, 1, 0, 1, 0, 1], [0, 0, 0, 0, 0, 0, 0]]
+  },
+  {
+    id: 'semated-09',
+    title: 'SEMATED 9',
+    rows: 6,
+    cols: 10,
+    trees: [[0, 1], [1, 0], [1, 4], [1, 6], [1, 9], [2, 5], [3, 1], [3, 8], [5, 2], [5, 3], [5, 4], [5, 7]],
+    rowClues: [4, 0, 4, 0, 1, 3],
+    colClues: [1, 2, 1, 1, 1, 1, 2, 0, 2, 1],
+    solution: [[1, 0, 1, 0, 0, 0, 1, 0, 0, 1], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 1, 0, 1, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 1, 0, 0, 1, 0]]
+  },
+  {
+    id: 'semated-10',
+    title: 'SEMATED 10',
+    rows: 7,
+    cols: 10,
+    trees: [[0, 0], [0, 3], [0, 8], [1, 5], [2, 4], [2, 7], [3, 1], [4, 8], [5, 0], [5, 3], [5, 5], [5, 9], [6, 3], [6, 8]],
+    rowClues: [3, 1, 2, 2, 2, 1, 3],
+    colClues: [2, 1, 1, 2, 1, 2, 1, 2, 1, 1],
+    solution: [[0, 0, 1, 0, 0, 1, 0, 1, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 1, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 1, 0, 1, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 1, 0, 1]]
+  },
+  {
+    id: 'extra-clareira',
+    title: 'Extra: Clareira',
+    rows: 5,
+    cols: 5,
     trees: [[0, 1], [1, 4], [2, 2], [3, 4], [4, 1]],
     rowClues: [2, 0, 1, 1, 1],
-    colClues: [1, 1, 0, 1, 2]
+    colClues: [1, 1, 0, 1, 2],
+    solution: [[1, 0, 0, 0, 1], [0, 0, 0, 0, 0], [0, 0, 0, 1, 0], [0, 1, 0, 0, 0], [0, 0, 0, 0, 1]]
   },
   {
-    id: 'trilha',
-    title: 'Trilha',
-    size: 6,
+    id: 'extra-trilha',
+    title: 'Extra: Trilha',
+    rows: 6,
+    cols: 6,
     trees: [[0, 1], [1, 2], [1, 4], [3, 5], [4, 1], [5, 4]],
     rowClues: [2, 0, 2, 0, 1, 1],
-    colClues: [2, 0, 1, 1, 1, 1]
+    colClues: [2, 0, 1, 1, 1, 1],
+    solution: [[1, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 1], [0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0]]
   },
   {
-    id: 'bosque',
-    title: 'Bosque',
-    size: 7,
+    id: 'extra-bosque',
+    title: 'Extra: Bosque',
+    rows: 7,
+    cols: 7,
     trees: [[0, 0], [1, 5], [2, 2], [3, 6], [4, 0], [5, 3], [6, 4]],
     rowClues: [2, 0, 1, 1, 1, 1, 1],
-    colClues: [1, 1, 1, 1, 0, 2, 1]
-  },
-  {
-    id: 'acampamento',
-    title: 'Acampamento',
-    size: 8,
-    trees: [[0, 1], [1, 4], [2, 1], [3, 6], [4, 1], [5, 4], [6, 1], [7, 6]],
-    rowClues: [2, 0, 2, 0, 2, 0, 2, 0],
-    colClues: [2, 0, 2, 0, 2, 0, 2, 0]
+    colClues: [1, 1, 1, 1, 0, 2, 1],
+    solution: [[0, 1, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 1], [0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0]]
   }
 ]);
 
@@ -1035,4 +1133,3 @@ export const PUZZLES = deepFreeze({
   balance: BALANCE_LEVELS,
   jigsaw: JIGSAW_LEVELS
 });
-
